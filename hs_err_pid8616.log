@@ -1,0 +1,223 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1673296 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:390), pid=8616, tid=7728
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_45-b14) (build 1.8.0_45-b14)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.45-b02 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000005698f000):  JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=7728, stack(0x0000000057de0000,0x0000000057ee0000)]
+
+Stack: [0x0000000057de0000,0x0000000057ee0000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x32b57a]
+
+
+Current CompileTask:
+C2:    896 1361       4       java.net.URLClassLoader$1::run (5 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000056a1a000 JavaThread "Service Thread" daemon [_thread_blocked, id=6704, stack(0x0000000058620000,0x0000000058720000)]
+  0x0000000056994800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=1836, stack(0x0000000058520000,0x0000000058620000)]
+=>0x000000005698f000 JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=7728, stack(0x0000000057de0000,0x0000000057ee0000)]
+  0x000000005698d800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=3112, stack(0x0000000058290000,0x0000000058390000)]
+  0x0000000056986000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=11224, stack(0x00000000580b0000,0x00000000581b0000)]
+  0x0000000056983000 JavaThread "Attach Listener" daemon [_thread_blocked, id=8488, stack(0x0000000057bd0000,0x0000000057cd0000)]
+  0x0000000056982000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=1308, stack(0x0000000057f00000,0x0000000058000000)]
+  0x00000000558cf000 JavaThread "Finalizer" daemon [_thread_blocked, id=6392, stack(0x0000000057cd0000,0x0000000057dd0000)]
+  0x00000000558c8000 JavaThread "Reference Handler" daemon [_thread_blocked, id=400, stack(0x0000000057a40000,0x0000000057b40000)]
+  0x000000000048e000 JavaThread "main" [_thread_in_vm, id=9028, stack(0x0000000002470000,0x0000000002570000)]
+
+Other Threads:
+  0x0000000056932800 VMThread [stack: 0x0000000057910000,0x0000000057a10000] [id=9012]
+  0x0000000056a26800 WatcherThread [stack: 0x00000000583e0000,0x00000000584e0000] [id=12240]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 76288K, used 19084K [0x00000000eab00000, 0x00000000f0000000, 0x0000000100000000)
+  eden space 65536K, 12% used [0x00000000eab00000,0x00000000eb328848,0x00000000eeb00000)
+  from space 10752K, 99% used [0x00000000eeb00000,0x00000000ef57aa20,0x00000000ef580000)
+  to   space 10752K, 0% used [0x00000000ef580000,0x00000000ef580000,0x00000000f0000000)
+ ParOldGen       total 175104K, used 2618K [0x00000000c0000000, 0x00000000cab00000, 0x00000000eab00000)
+  object space 175104K, 1% used [0x00000000c0000000,0x00000000c028e9c0,0x00000000cab00000)
+ Metaspace       used 17771K, capacity 18096K, committed 18432K, reserved 1064960K
+  class space    used 2892K, capacity 3006K, committed 3072K, reserved 1048576K
+
+Card table byte_map: [0x0000000011c00000,0x0000000011e10000] byte_map_base: 0x0000000011600000
+
+Marking Bits: (ParMarkBitMap*) 0x00000000701c4040
+ Begin Bits: [0x0000000012ce0000, 0x0000000013ce0000)
+ End Bits:   [0x0000000013ce0000, 0x0000000014ce0000)
+
+Polling page: 0x0000000000230000
+
+CodeCache: size=245760Kb used=4491Kb max_used=4502Kb free=241268Kb
+ bounds [0x0000000002840000, 0x0000000002cb0000, 0x0000000011840000]
+ total_blobs=1797 nmethods=1433 adapters=276
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.876 Thread 0x0000000056994800 1429       1       scala.collection.mutable.HashMap::threshold (5 bytes)
+Event: 0.876 Thread 0x0000000056994800 nmethod 1429 0x0000000002ca71d0 code [0x0000000002ca7320, 0x0000000002ca7430]
+Event: 0.876 Thread 0x0000000056994800 1431       1       scala.collection.mutable.HashTable$class::initialSize (3 bytes)
+Event: 0.876 Thread 0x0000000056994800 nmethod 1431 0x0000000002ca6f10 code [0x0000000002ca7060, 0x0000000002ca7150]
+Event: 0.876 Thread 0x000000005698d800 nmethod 1432 0x0000000002ca8350 code [0x0000000002ca8480, 0x0000000002ca8518]
+Event: 0.876 Thread 0x0000000056986000 nmethod 1427 0x0000000002ca9ad0 code [0x0000000002ca9c20, 0x0000000002caa138]
+Event: 0.892 Thread 0x0000000056994800 1433       3       scala.reflect.internal.Symbols$TermSymbol::isOverloaded (8 bytes)
+Event: 0.892 Thread 0x0000000056994800 nmethod 1433 0x0000000002ca6b10 code [0x0000000002ca6c80, 0x0000000002ca6e88]
+Event: 0.892 Thread 0x0000000056994800 1434       1       scala.reflect.internal.Symbols$AliasTypeSymbol::isAliasType (2 bytes)
+Event: 0.892 Thread 0x0000000056994800 nmethod 1434 0x0000000002ca9810 code [0x0000000002ca9960, 0x0000000002ca9a70]
+
+GC Heap History (2 events):
+Event: 0.840 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 76288K, used 65536K [0x00000000eab00000, 0x00000000f0000000, 0x0000000100000000)
+  eden space 65536K, 100% used [0x00000000eab00000,0x00000000eeb00000,0x00000000eeb00000)
+  from space 10752K, 0% used [0x00000000ef580000,0x00000000ef580000,0x00000000f0000000)
+  to   space 10752K, 0% used [0x00000000eeb00000,0x00000000eeb00000,0x00000000ef580000)
+ ParOldGen       total 175104K, used 0K [0x00000000c0000000, 0x00000000cab00000, 0x00000000eab00000)
+  object space 175104K, 0% used [0x00000000c0000000,0x00000000c0000000,0x00000000cab00000)
+ Metaspace       used 17388K, capacity 17744K, committed 17920K, reserved 1064960K
+  class space    used 2841K, capacity 2974K, committed 3072K, reserved 1048576K
+Event: 0.847 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 76288K, used 10730K [0x00000000eab00000, 0x00000000f0000000, 0x0000000100000000)
+  eden space 65536K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eeb00000)
+  from space 10752K, 99% used [0x00000000eeb00000,0x00000000ef57aa20,0x00000000ef580000)
+  to   space 10752K, 0% used [0x00000000ef580000,0x00000000ef580000,0x00000000f0000000)
+ ParOldGen       total 175104K, used 2618K [0x00000000c0000000, 0x00000000cab00000, 0x00000000eab00000)
+  object space 175104K, 1% used [0x00000000c0000000,0x00000000c028e9c0,0x00000000cab00000)
+ Metaspace       used 17388K, capacity 17744K, committed 17920K, reserved 1064960K
+  class space    used 2841K, capacity 2974K, committed 3072K, reserved 1048576K
+}
+
+Deoptimization events (7 events):
+Event: 0.171 Thread 0x000000000048e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000029fb4f4 method=sun.misc.MetaIndex.mayContain(Ljava/lang/String;)Z @ 13
+Event: 0.492 Thread 0x000000000048e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002981080 method=java.lang.String.startsWith(Ljava/lang/String;I)Z @ 25
+Event: 0.613 Thread 0x000000000048e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002ab0d98 method=java.util.HashMap.getNode(ILjava/lang/Object;)Ljava/util/HashMap$Node; @ 62
+Event: 0.614 Thread 0x000000000048e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002aafea8 method=java.util.HashMap.getNode(ILjava/lang/Object;)Ljava/util/HashMap$Node; @ 62
+Event: 0.743 Thread 0x000000000048e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002bc5c50 method=scala.reflect.internal.Symbols$class.shouldTriggerCompleter(Lscala/reflect/internal/SymbolTable;Lscala/reflect/internal/Symbols$Symbol;Lscala/reflect/internal/Types$Type;ZJ)ZA®ò¨n»è?
+Event: 0.773 Thread 0x000000000048e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002a99cc4 method=sun.misc.MetaIndex.mayContain(Ljava/lang/String;)Z @ 38
+Event: 0.852 Thread 0x000000000048e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002af66cc method=java.lang.ref.ReferenceQueue.poll()Ljava/lang/ref/Reference; @ 4
+
+Internal exceptions (10 events):
+Event: 0.704 Thread 0x000000000048e000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000edfa7060) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3457\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 0.705 Thread 0x000000000048e000 Exception <a 'java/lang/ClassNotFoundException': scala/reflect/ScalaSignature> (0x00000000edfb0c20) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3457\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.705 Thread 0x000000000048e000 Exception <a 'java/lang/ClassNotFoundException': scala/reflect/ScalaLongSignature> (0x00000000edfb11a8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3457\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.707 Thread 0x000000000048e000 Exception <a 'java/lang/ClassNotFoundException': scala/reflect/ScalaSignature> (0x00000000edfc4988) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3457\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.708 Thread 0x000000000048e000 Exception <a 'java/lang/ClassNotFoundException': scala/reflect/ScalaLongSignature> (0x00000000edfc4f10) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3457\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.709 Thread 0x000000000048e000 Exception <a 'java/lang/ClassNotFoundException': scala/reflect/ScalaSignature> (0x00000000edfd2dd0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3457\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.709 Thread 0x000000000048e000 Exception <a 'java/lang/ClassNotFoundException': scala/reflect/ScalaLongSignature> (0x00000000edfd31c8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3457\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.710 Thread 0x000000000048e000 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000edfd4908) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3457\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 0.787 Thread 0x000000000048e000 Exception <a 'java/lang/ClassNotFoundException': java/net> (0x00000000ee4d8a10) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3457\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.787 Thread 0x000000000048e000 Exception <a 'java/lang/ClassNotFoundException': java/net/package> (0x00000000ee4d9548) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u45\3457\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+
+Events (10 events):
+Event: 0.893 loading class sbt/serialization/pickler/ThrowablePicklers$stackTracePickler$
+Event: 0.893 loading class sbt/serialization/pickler/ThrowablePicklers$stackTracePickler$ done
+Event: 0.894 loading class sbt/serialization/pickler/ThrowablePicklers$stackTracePickler$$anon$4
+Event: 0.894 loading class sbt/serialization/pickler/ThrowablePicklers$stackTracePickler$$anon$4 done
+Event: 0.894 loading class sbt/serialization/pickler/ThrowablePick$$$$af8b8adc0cc495191cbcfceb3bd2e24$$$$ypecreator6$1
+Event: 0.894 loading class sbt/serialization/pickler/ThrowablePick$$$$af8b8adc0cc495191cbcfceb3bd2e24$$$$ypecreator6$1 done
+Event: 0.894 loading class sbt/serialization/pickler/ThrowablePicklers$stackTracePickler$$anon$1
+Event: 0.894 loading class sbt/serialization/pickler/ThrowablePicklers$stackTracePickler$$anon$1 done
+Event: 0.895 loading class sbt/serialization/pickler/ThrowablePick$$$$f95fe1c462315bdacd6656f0c2ce7c$$$$ypecreator1$1
+Event: 0.895 loading class sbt/serialization/pickler/ThrowablePick$$$$f95fe1c462315bdacd6656f0c2ce7c$$$$ypecreator1$1 done
+
+
+Dynamic libraries:
+0x000000013f4e0000 - 0x000000013f517000 	C:\ProgramData\Oracle\Java\javapath\java.exe
+0x00000000777e0000 - 0x0000000077989000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00000000776c0000 - 0x00000000777e0000 	C:\Windows\system32\kernel32.dll
+0x000007fefdec0000 - 0x000007fefdf2c000 	C:\Windows\system32\KERNELBASE.dll
+0x000007feff740000 - 0x000007feff81b000 	C:\Windows\system32\ADVAPI32.dll
+0x000007fefe3e0000 - 0x000007fefe47f000 	C:\Windows\system32\msvcrt.dll
+0x000007fefe600000 - 0x000007fefe61f000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007feff910000 - 0x000007feffa3d000 	C:\Windows\system32\RPCRT4.dll
+0x00000000770e0000 - 0x00000000771da000 	C:\Windows\system32\USER32.dll
+0x000007feff820000 - 0x000007feff887000 	C:\Windows\system32\GDI32.dll
+0x000007fefe3d0000 - 0x000007fefe3de000 	C:\Windows\system32\LPK.dll
+0x000007fefe4b0000 - 0x000007fefe579000 	C:\Windows\system32\USP10.dll
+0x000007fefc6a0000 - 0x000007fefc894000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_fa396087175ac9ac\COMCTL32.dll
+0x000007feff890000 - 0x000007feff901000 	C:\Windows\system32\SHLWAPI.dll
+0x000007fefe480000 - 0x000007fefe4ae000 	C:\Windows\system32\IMM32.DLL
+0x000007fefe220000 - 0x000007fefe329000 	C:\Windows\system32\MSCTF.dll
+0x0000000070f60000 - 0x0000000071032000 	C:\Program Files\Java\jre1.8.0_45\bin\msvcr100.dll
+0x000000006f9c0000 - 0x0000000070243000 	C:\Program Files\Java\jre1.8.0_45\bin\server\jvm.dll
+0x000007fef9640000 - 0x000007fef9649000 	C:\Windows\system32\WSOCK32.dll
+0x000007feffaa0000 - 0x000007feffaed000 	C:\Windows\system32\WS2_32.dll
+0x000007feff730000 - 0x000007feff738000 	C:\Windows\system32\NSI.dll
+0x000007fefba60000 - 0x000007fefba9b000 	C:\Windows\system32\WINMM.dll
+0x000007fefcd90000 - 0x000007fefcd9c000 	C:\Windows\system32\VERSION.dll
+0x00000000779a0000 - 0x00000000779a7000 	C:\Windows\system32\PSAPI.DLL
+0x0000000073990000 - 0x000000007399f000 	C:\Program Files\Java\jre1.8.0_45\bin\verify.dll
+0x0000000073790000 - 0x00000000737b9000 	C:\Program Files\Java\jre1.8.0_45\bin\java.dll
+0x0000000073770000 - 0x0000000073786000 	C:\Program Files\Java\jre1.8.0_45\bin\zip.dll
+0x000007fefe800000 - 0x000007feff589000 	C:\Windows\system32\SHELL32.dll
+0x000007fefe010000 - 0x000007fefe213000 	C:\Windows\system32\ole32.dll
+0x000007fefdc40000 - 0x000007fefdc4f000 	C:\Windows\system32\profapi.dll
+0x0000000073560000 - 0x000000007357a000 	C:\Program Files\Java\jre1.8.0_45\bin\net.dll
+0x000007fefd590000 - 0x000007fefd5e5000 	C:\Windows\system32\mswsock.dll
+0x000007fefd710000 - 0x000007fefd717000 	C:\Windows\System32\wship6.dll
+0x0000000073540000 - 0x0000000073551000 	C:\Program Files\Java\jre1.8.0_45\bin\nio.dll
+0x000007fefd5f0000 - 0x000007fefd607000 	C:\Windows\system32\CRYPTSP.dll
+0x000007fefd1e0000 - 0x000007fefd227000 	C:\Windows\system32\rsaenh.dll
+0x000007fefcf80000 - 0x000007fefcf9e000 	C:\Windows\system32\USERENV.dll
+0x000007fefdb70000 - 0x000007fefdb7f000 	C:\Windows\system32\CRYPTBASE.dll
+0x000007fefb6b0000 - 0x000007fefb6d7000 	C:\Windows\system32\IPHLPAPI.DLL
+0x000007fefb6a0000 - 0x000007fefb6ab000 	C:\Windows\system32\WINNSI.DLL
+0x000007fefb140000 - 0x000007fefb151000 	C:\Windows\system32\dhcpcsvc6.DLL
+0x000007fefb2a0000 - 0x000007fefb2b8000 	C:\Windows\system32\dhcpcsvc.DLL
+0x000007fefad20000 - 0x000007fefad2a000 	C:\Users\jdclark\AppData\Local\Temp\jansi-64-1-2116899737163437147.11
+
+VM Arguments:
+jvm_args: -Xms256m -Xmx1024m -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=256m 
+java_command: C:\Users\jdclark\.sbt\launchers\sbt-launch-57d0f04f4b48b11ef7e764f4cea58dee4e806ffd.jar @load:file:/C:/Users/jdclark/AppData/Local/Temp/sbtlaunch6737555292262377446config
+java_class_path (initial): C:\Users\jdclark\.sbt\launchers\sbt-launch-57d0f04f4b48b11ef7e764f4cea58dee4e806ffd.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=c:\Rtools\bin;c:\Rtools\gcc-4.6.3\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_45\bin;C:\Program Files (x86)\Google\google_appengine\
+USERNAME=jdclark
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 (6.1.7601.19018)
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 16683144k(2456152k free), swap 16681308k(5068k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.45-b02) for windows-amd64 JRE (1.8.0_45-b14), built on Apr 10 2015 10:34:15 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Wed Dec 09 15:52:14 2015
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
