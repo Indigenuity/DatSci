@@ -41,10 +41,8 @@ public class WorkerRegistry {
 		registry.replace(workType, entry);
 	}
 	
-	//Return a copy of the registry.  Don't want anything iterating over it outside of this object
+	//Return a copy of the registry.  
 	public Map<WorkType, RegistryEntry> getRegistry() {
-		Map<WorkType, RegistryEntry> copy = new HashMap<WorkType, RegistryEntry>();
-		copy.putAll(registry);
-		return copy;
+		return new HashMap<WorkType, RegistryEntry>(registry);
 	}
 }
